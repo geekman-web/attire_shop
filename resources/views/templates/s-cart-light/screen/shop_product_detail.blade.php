@@ -31,7 +31,6 @@ $layout_page = shop_product_detail
                   <div class="item">
                     <div class="slick-product-figure">
 			<img src="{{ sc_file($product->getImage()) }}" alt="" width="530" height="480"/>
-			<button x-on:click="activeStatus" type="button" class="btn btn-secondary itm-s itm-active">Use this color</button>
                     </div>
                   </div>
                   @if ($product->images->count())
@@ -42,7 +41,6 @@ $layout_page = shop_product_detail
                   <div class="item">
                     <div class="slick-product-figure">
 			<img src="{{ sc_file($image->getImage()) }}" alt="" width="530" height="480"/>
-			<button type="button" class="btn btn-secondary itm-s">Use this color</button>
                     </div>
                   </div>
                   @endforeach
@@ -68,18 +66,61 @@ $layout_page = shop_product_detail
               </div>
             </div>
             <div class="col-lg-6">
+		<h3 class="text-transform-none font-weight-medium" id="product-detail-name">{{ $product->name }}</h3>
+		<!-- First Form -->
+		<form method="POST" action="img_upload" id="img_upld" enctype="multipart/form-data">
+			<div class="custom-file">
+				{{ csrf_field() }}
+				<input type="file" class="custom-file-input" name="design" id="tshirt-custompicture" />
+				<label class="custom-file-label" for="tshirt-custompicture">Upload Image or Logo</label>
+				<input type="text" name="sku" value="{{ $product->sku }}" />
+				<input type="text" name="sess" id="sess_id" />
+			</div>
+		</form>
+		<!-- End Form -->
+		<!-- Second Form -->
+		<form>
+                                <input type="hidden" name="sku_ref" value="{{ $product->sku }}"/>
+                                <input type="hidden" name="shirt_color" id="use_color" value="Black" />
+                                <input type="hidden" name="shirt_size" id="use_size" value="Small" />
+                               <div class="row form-group">
+                                        <div class="col">
+                                            <select class="form-control form-control-sm upd_attr" aim_for="" id="exampleFormControlSelect1">
+                                                <option>Print</option>
+                                                <option>Embrodery</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <select class="form-control form-control-sm upd_attr" aim_for="form_attr[3]" id="exampleFormControlSelect1">
+                                                <option>Personal</option>
+                                                <option>Business</option>
+                                            </select>
+
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                            <select class="form-control form-control-sm upd_attr" id="exampleFormControlSelect1">
+                                                <option>Select Image position</option>
+                                                <option>Chest Right Side (Logo size)</option>
+                                                <option>Chest Left Side (Logo size)</option>
+                                                <option>Chest Middle (Cover Chest Area)</option>
+                                                <option>Center (Cover Torso)</option>
+                                            </select>
+
+                                </div>
+                                <div class="form-group">
+                                        <textarea class="form-control" placeholder="Leave a detailed description of what you need"></textarea>
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="Save"/>
+                        </form>
+		<!-- End Form -->
+		<!-- Second Form -->
             <form id="buy_block" class="product-information" action="{{ sc_route('cart.add') }}" method="post">
               {{ csrf_field() }}
               <input type="hidden" name="product_id" id="product-detail-id" value="{{ $product->id }}" />
               <input type="hidden" name="storeId" id="product-detail-storeId" value="{{ $product->store_id }}" />
               <div class="single-product">
-                <h3 class="text-transform-none font-weight-medium" id="product-detail-name">{{ $product->name }}</h3>
-                
                 {!! $product->displayVendor() !!}
-                <p>
-			<label for="tshirt-custompicture">Upload your design on the shirt:</label>
-			<input type="file" id="tshirt-custompicture" />
-		</p>
                 <p>
                  SKU: <span id="product-detail-model">{{ $product->sku }}</span>
                 </p>
@@ -94,31 +135,6 @@ $layout_page = shop_product_detail
 
                 <hr class="hr-gray-100">
 
-                {{-- Button add to cart --}}
-                @if ($product->kind != SC_PRODUCT_GROUP && $product->allowSale() && !sc_config('product_cart_off'))
-                <div class="group-xs group-middle">
-                    <div class="product-stepper">
-                      <input class="form-input" name="qty" type="number" data-zeros="true" value="1" min="1" max="100">
-                    </div>
-                    <div>
-                      @php
-                      $dataButton = [
-                              'class' => '', 
-                              'id' =>  'sc_button-form-process',
-                              'type_w' => '',
-                              'type_t' => 'buy',
-                              'type_a' => '',
-                              'type' => 'submit',
-                              'name' => ''.sc_language_render('action.add_to_cart'),
-                              'html' => ''
-                          ];
-                      @endphp
-                      @include($sc_templatePath.'.common.button.button', $dataButton)
-                    </div>
-                </div>
-                @endif
-                {{--// Button add to cart --}}
-
                 {{-- Show attribute --}}
                 @if (sc_config('product_property'))
                 <div id="product-detail-attr">
@@ -128,6 +144,8 @@ $layout_page = shop_product_detail
                 </div>
                 @endif
                 {{--// Show attribute --}}
+
+		<p>The items listed above will be determined based on your preferences.</p>
 
                 {{-- Stock info --}}
                 @if (sc_config('product_stock'))
@@ -210,6 +228,31 @@ $layout_page = shop_product_detail
                 @endif
               {{-- Product kind --}}
 
+		{{-- Button add to cart --}}
+                @if ($product->kind != SC_PRODUCT_GROUP && $product->allowSale() && !sc_config('product_cart_off'))
+                <div class="group-xs group-middle">
+                    <div class="product-stepper">
+                      <input class="form-input" name="qty" type="number" data-zeros="true" value="1" min="1" max="100">
+                    </div>
+                    <div>
+                      @php
+                      $dataButton = [
+                              'class' => '',
+                              'id' =>  'sc_button-form-process',
+                              'type_w' => '',
+                              'type_t' => 'buy',
+                              'type_a' => '',
+                              'type' => 'submit',
+                              'name' => ''.sc_language_render('action.add_to_cart'),
+                              'html' => ''
+                          ];
+                      @endphp
+                      @include($sc_templatePath.'.common.button.button', $dataButton)
+                    </div>
+                </div>
+                @endif
+                {{--// Button add to cart --}}
+
                 <hr class="hr-gray-100">
 
                 {{-- Social --}}
@@ -286,26 +329,5 @@ $layout_page = shop_product_detail
 <script src="../js/index.min.js"></script>
 <script src="../js/ini.js"></script>
 <script src="../js/alpine.min.js"></script>
-
-<script>
-	function activeStatus (event) {
-
-		let activeItem = event.srcElement.classList.contains("itm-active");
-
-		if (activeItem) {
-console.log("as");
-		} else {
-			//Remove itm-active from other places
-			items = document.getElementsByClassName("itm-active");
-
-			for (let i = 0; i < items.length; i++) {
-				items[i].classList.remove("itm-active");
-				items[i].value("Use this color");
-			}
-
-			event.srcElement.classList.add("itm-active");
-			event.srcElement.value("Current color");
-		}
-	}
-</script>
+<script src="../js/pcart.js"></script>
 @endpush
