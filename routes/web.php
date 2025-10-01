@@ -17,5 +17,5 @@ use App\Http\Controllers\UploadController;
 //     return view('welcome');
 // });
 
-Route::post('h_query', [QueryController::class, 'handle']);
+//Route::post('h_query', [QueryController::class, 'handle']);
 Route::post('product/img_upload', [UploadController::class, 'store']);

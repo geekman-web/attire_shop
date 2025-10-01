@@ -29,10 +29,10 @@
                 </ul>
               </div>
               <div class="col-lg-4 wow fadeInRight" data-wow-delay=".2s">
-                <h4 class="footer-classic-title">Links</h4>
+                <h4 class="footer-classic-title">  </h4>
                 <!-- RD Mailform-->
                 <ul class="contacts-creative">
-                  <li><a href="t-shirt-designer">T-Shirt Deisgner</a></li>
+                  <!--<li><a href="t-shirt-designer">T-Shirt Deisgner</a></li>-->
                 </ul>
               </div>
             </div>

@@ -256,7 +256,7 @@ $layout_page = shop_product_detail
                 <hr class="hr-gray-100">
 
                 {{-- Social --}}
-                <div class="group-xs group-middle"><span class="list-social-title">Share</span>
+<!--                <div class="group-xs group-middle"><span class="list-social-title">Share</span>
                   <div>
                     <ul class="list-inline list-social list-inline-sm">
                       <li><a class="icon mdi mdi-facebook" href="#"></a></li>
@@ -265,7 +265,7 @@ $layout_page = shop_product_detail
                       <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
                     </ul>
                   </div>
-                </div>
+                </div>-->
                 {{--// Social --}}
 
               </div>
