@@ -77,7 +77,7 @@ Use paginate: $products->appends(request()->except(['page','_token']))->links()
             </div>
 
             <div class="col-12">
-                <form class="sc-shipping-address" id="form-order" role="form" method="POST" action="{{ sc_route('order.add') }}">
+                <form class="sc-shipping-address" id="form-order" data-secret="{{ $intent->client_secret }}" role="form" method="POST" action="{{ sc_route('order.add') }}">
                     {{-- Required csrf for secirity --}}
                     @csrf
                     {{--// Required csrf for secirity --}}
@@ -193,6 +193,10 @@ Use paginate: $products->appends(request()->except(['page','_token']))->links()
                                 </div>
                             </div>
                             {{-- End total --}}
+<p id="pkey" hidden>{{ $p_key }}</p>
+{{-- Pay Elements --}}
+	<div id="pay-element"></div>
+{{-- End Pay Elements  --}}
 
                             {{-- Button process cart --}}
                             <div class="row" style="padding-bottom: 20px;">
@@ -245,7 +249,8 @@ Use paginate: $products->appends(request()->except(['page','_token']))->links()
 
 
 @push('scripts')
-{{-- //script here --}}
+	<script src="https://js.stripe.com/clover/stripe.js"></script>
+	<script src="{{ asset('js/ini_str.js') }}"></script>
 @endpush
 
 @push('styles')

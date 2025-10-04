@@ -13,7 +13,7 @@
     "type" : "project",
     "require": {
         "s-cart/core": "~9.0.0",
-        "stripe/stripe-php": "^17.6"
+        "stripe/stripe-php": "^18.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

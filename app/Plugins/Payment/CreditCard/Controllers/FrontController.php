@@ -3,7 +3,7 @@
 namespace App\Plugins\Payment\CreditCard\Controllers;
 
 use App\Plugins\Payment\CreditCard\AppConfig;
-use SCart\Core]Front\Controllers\ShopCartController;
+use SCart\Core\Front\Controllers\ShopCartController;
 use SCart\Core\Front\Controllers\RootFrontController;
 class FrontController extends RootFrontController
 {
@@ -18,12 +18,14 @@ class FrontController extends RootFrontController
     public function index() {
         return view($this->plugin->pathPlugin.'::Front',
             [
-                //
+                'test' => 'Testing...',
             ]
         );
     }
 
     public function processOrder(){
+	
+
         return (new ShopCartController)->completeOrder();
     }
 }

@@ -1,9 +1,11 @@
-const stripe = Stripe('publishible_key');
-const secret = document.getElementById('secret').innerHTML;
+const p_key = document.getElementById("pkey").innerHTML;
+const secret = document.getElementById("form-order").getAttribute("data-secret");
 
 const options = {
    clientSecret: secret
 };
+
+const stripe = Stripe(p_key, options);
 
 const elements = stripe.elements(options);
 

@@ -2,6 +2,7 @@
 
 @section('main')
     {{-- Content --}}
+<p>test: {{ $test }}</p>
 @endsection
 
 @section('breadcrumb')
@@ -18,5 +19,5 @@
 @endpush
 
 @push('scripts')
-      <script src="https://js.stripe.com/basil/stripe.js"></script>
+      'Doesnt work here? why?'
 @endpush
