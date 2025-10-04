@@ -66,7 +66,7 @@ return [
     |
      */
     
-    'timezone' => env('APP_TIMEZONE', 'Asia/ho_chi_minh'),
+    'timezone' => env('APP_TIMEZONE', 'America/New York'),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,6 +108,10 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+
+	//Stripe
+	'STRIPE_KEY' => env('STRIPE_KEY'),
+	'STRIPE_SECRET' => ENV('STRIPE_SECRET'), 
 
     /*
     |--------------------------------------------------------------------------

@@ -18,5 +18,5 @@
 @endpush
 
 @push('scripts')
-      {{-- script --}}
+      <script src="https://js.stripe.com/basil/stripe.js"></script>
 @endpush

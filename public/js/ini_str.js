@@ -11,7 +11,7 @@ const paymentElementOptions = { layout: 'accordion' };
 const paymentElement = elements.create('payment', paymentElementOptions);
 paymentElement.mount('#pay-element');
 
-const form = document.getElementById('form_id');
+const form = document.getElementById('form_order');
 form.addEventListener('submit', async(e) => {
    e.preventDefault();
    e.submitter.setAttribute('disabled', "");
