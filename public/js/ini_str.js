@@ -13,7 +13,7 @@ const paymentElementOptions = { layout: 'accordion' };
 const paymentElement = elements.create('payment', paymentElementOptions);
 paymentElement.mount('#pay-element');
 
-const form = document.getElementById('form_order');
+const form = document.getElementById('form-order');
 form.addEventListener('submit', async(e) => {
    e.preventDefault();
    e.submitter.setAttribute('disabled', "");
@@ -26,14 +26,14 @@ form.addEventListener('submit', async(e) => {
 
       redirect: 'if_required',
    }).then(function (result){
-      const messages = document.getElementById('result-message');
+      const message = document.getElementById('result-message');
 
-      if (result) {
+      if (result.error) {
          message.innerHTML = result.error.message,
-         e.submitter.removeAttribue('disabled');
+         e.submitter.removeAttribute('disabled');
       } else {
          //message.innerHTML = result.paymentIntent.status;
-         if (result.paymentIntent.status == "Succeded!") {
+         if (result.paymentIntent.status == "succeeded") {
             e.target.submit();
          }
       }

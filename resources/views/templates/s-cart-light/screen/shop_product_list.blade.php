@@ -24,7 +24,7 @@ Use paginate: $products->appends(request()->except(['page','_token']))->links()
                 <div class="single-products">
                     <div class="productinfo text-center product-box-{{ $item->id }}">
                         <a href="{{ $item->getUrl() }}"><img src="{{ sc_file($item->getThumb()) }}"
-                                alt="{{ $item->title }}" /></a>
+                                alt="{{ $item->title }}" width="180" height="225" /></a>
                         <a href="{{ $item->getUrl() }}">
                             <p>{{ $item->title }}</p>
                         </a>

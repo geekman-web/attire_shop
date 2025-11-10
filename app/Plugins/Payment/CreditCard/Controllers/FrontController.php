@@ -24,8 +24,6 @@ class FrontController extends RootFrontController
     }
 
     public function processOrder(){
-	
-
         return (new ShopCartController)->completeOrder();
     }
 }

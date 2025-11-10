@@ -198,6 +198,8 @@ Use paginate: $products->appends(request()->except(['page','_token']))->links()
 	<div id="pay-element"></div>
 {{-- End Pay Elements  --}}
 
+<p id="result-message"></p>
+
                             {{-- Button process cart --}}
                             <div class="row" style="padding-bottom: 20px;">
                                 <div class="col-md-12 text-center">

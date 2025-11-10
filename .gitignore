@@ -18,3 +18,6 @@ yarn-error.log
 public/storage/.gitignore
 public/build
 public/hot
+public/data
+storage/app/public/uploaded/
+public/storage

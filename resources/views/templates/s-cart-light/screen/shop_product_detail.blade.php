@@ -73,8 +73,8 @@ $layout_page = shop_product_detail
 				{{ csrf_field() }}
 				<input type="file" class="custom-file-input" name="design" id="tshirt-custompicture" />
 				<label class="custom-file-label" for="tshirt-custompicture">Upload Image or Logo</label>
-				<input type="text" name="sku" value="{{ $product->sku }}" />
-				<input type="text" name="sess" id="sess_id" />
+				<input type="text" name="sku" hidden value="{{ $product->sku }}" />
+				<input type="text" name="sess" hidden id="sess_id" />
 			</div>
 		</form>
 		<!-- End Form -->
@@ -330,4 +330,7 @@ $layout_page = shop_product_detail
 <script src="../js/ini.js"></script>
 <script src="../js/alpine.min.js"></script>
 <script src="../js/pcart.js"></script>
+<script src="{{ sc_file($sc_templateFile.'/js/scripts/stepper.js')}}"></script>
+<script src="{{ sc_file($sc_templateFile.'/js/scripts/lightgallery.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/slick.js') }}"></script>
 @endpush

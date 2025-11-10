@@ -26,7 +26,10 @@
     <!--//Module header -->
 
     <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/fonts.css')}}">
+   <!-- <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/fonts.css')}}">-->
+    <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/bigmug.css')}}">
+    <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/material.css')}}">
     <link rel="stylesheet" href="{{ sc_file($sc_templateFile.'/css/style.css')}}">
     <style>
         {!! sc_store_css() !!}
@@ -133,7 +136,21 @@
         <div class="sc-overlay"><i class="fa fa-spinner fa-pulse fa-5x fa-fw "></i></div>
     </div>
 
-    <script src="{{ sc_file($sc_templateFile.'/js/core.min.js')}}"></script>
+
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/jquery.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/device.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/bootstrap.js')}}"></script>
+    <!--<script src="{{ sc_file($sc_templateFile.'/js/scripts/regula.js')}}"></script>-->
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/rdinputlabel.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/owl.js')}}" async></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/isotope.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/rdnavbar.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/uitotop.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/mousewheel.js')}}" async></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/swiper.js')}}" async></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/wow.js')}}" async></script>
+<!--    <script src="{{ sc_file($sc_templateFile.'/js/scripts/lightgallery.js')}}"></script>
+    <script src="{{ sc_file($sc_templateFile.'/js/scripts/slick.js') }}"></script>-->
     <script src="{{ sc_file($sc_templateFile.'/js/script.js')}}"></script>
     
     <!-- js default for item s-cart -->
